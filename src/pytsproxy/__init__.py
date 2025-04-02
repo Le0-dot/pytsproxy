@@ -56,11 +56,11 @@ class TailscaleAPIHandler(BaseHTTPRequestHandler):
         try:
             tailnet, tag = path_parts
         except ValueError:
-            self.send_response(HTTPStatus.NOT_FOUND)
+            self.send_response_only(HTTPStatus.NOT_FOUND)
             return
 
         if (bearer_token := self.headers["Authorization"]) is None:
-            self.send_response(HTTPStatus.UNAUTHORIZED)
+            self.send_response_only(HTTPStatus.UNAUTHORIZED)
             return
 
         names = tailscale_devices(tailnet, tag, bearer_token)
@@ -72,6 +72,7 @@ class TailscaleAPIHandler(BaseHTTPRequestHandler):
 
         response = json.dumps(response_data)
         _ = self.wfile.write(response.encode())
+        _ = self.wfile.write(b"\n")
 
 
 def main() -> None:
