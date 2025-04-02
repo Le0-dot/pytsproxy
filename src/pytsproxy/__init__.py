@@ -67,7 +67,7 @@ class TailscaleAPIHandler(BaseHTTPRequestHandler):
         response_data = [{"targets": list(names)}]
 
         self.send_response(HTTPStatus.OK)
-        self.send_header("Content-type", "text/json")
+        self.send_header("Content-type", "application/json")
         self.end_headers()
 
         response = json.dumps(response_data)
