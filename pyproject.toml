@@ -1,0 +1,10 @@
+[project]
+name = "pytsproxy"
+version = "0.1.0"
+description = "Small python web server to use as discover target of tailscale devices in prometheus"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+pytsproxy = "pytsproxy:main"
