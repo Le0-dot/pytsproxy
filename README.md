@@ -30,7 +30,7 @@ pytsproxy -h
 
 ### To run on port 8080
 ```sh
-docker run ghcr.io/le0-dot/pytsproxy
+docker run -p 8080:80 ghcr.io/le0-dot/pytsproxy
 ```
 
 Or

@@ -5,4 +5,4 @@ COPY . /app
 RUN pip install /app
 
 ENTRYPOINT ["pytsproxy"]
-CMD ["-p", "8080"]
+CMD ["-p", "80"]
